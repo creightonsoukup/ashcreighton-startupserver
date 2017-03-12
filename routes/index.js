@@ -8,7 +8,7 @@ const ROOT_URL=`http://api.crunchbase.com/v/3/odm-organizations?user_key=${API_K
 /* GET home page. */
 router.post('/companies/:url', function(req, res, next) {
   const term = req.params.url
-  request(`${ROOT_URL}&domain_name=${term}`, function (error, response, body) {
+  request(`${ROOT_URL}&query=${term}`, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       res.send(body)
     } else {
